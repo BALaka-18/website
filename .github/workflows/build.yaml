@@ -1,4 +1,4 @@
-name: CI/CD for website
+name: CI/CD for Pallets Website
 on:
   push:
     branches:
@@ -7,7 +7,10 @@ on:
     branches: [ master ]
 jobs: 
   build:
-    name: Build and Deploy
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [2.7]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -18,10 +21,16 @@ jobs:
 
       # Installations and Deployment
 
-      - run: pip install lektor   # Install Lektor
-      - run: npm install --global npm@latest
-      - run: lektor build -f webpack   # Build
-      - run: lektor deploy production   # Deploy
+      - name: Install Lektor and Node dependensies
+        run: 
+          pip install lektor
+          npm install --global npm@latest
+      - name: Build
+        run: 
+          lektor build -f webpack   # Build
+      - name: Deploy
+        run: 
+          lektor deploy production   # Deploy
 
       # Webhook
 

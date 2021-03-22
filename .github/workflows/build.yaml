@@ -1,4 +1,4 @@
-name: CI/CD for Pallets Website
+name: CI/CD for website
 on:
   push:
     branches:

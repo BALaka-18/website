@@ -1,8 +1,7 @@
 name: CI/CD for Pallets Website
 on:
   push:
-    branches:
-      - master
+    branches: [ github-actions ]
   pull_request:
     branches: [ master ]
 jobs: 
@@ -13,11 +12,11 @@ jobs:
         python-version: [2.7]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-      - name: Setup Python
-        uses: actions/setup-python@master
+      - uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
         with:
-          python-version: 2.7
+          python-version: ${{ matrix.python-version }}
 
       # Installations and Deployment
 

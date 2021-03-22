@@ -1,0 +1,39 @@
+name: CI/CD for Pallets Website
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches: [ master ]
+jobs: 
+  run:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+    env:
+      OS: ${{ matrix.os }}
+      PYTHON: '2.7'
+  build:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Setup Python
+        uses: actions/setup-python@master
+        with:
+          python-version: 2.7
+
+      # Installations and Deployment
+
+      - run: pip install lektor   # Install Lektor
+      - run: npm install --global npm@latest
+      - run: lektor build -f webpack   # Build
+      - run: lektor deploy production   # Deploy
+
+      # Webhook
+
+      - name: Webhook
+        uses: distributhor/workflow-webhook
+        with:
+          url: https://webhooks.gitter.im/e/f0c538cdfc9883f81e34

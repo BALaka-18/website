@@ -33,7 +33,7 @@ jobs:
 
       # Webhook
 
-      - name: Webhook
-        uses: distributhor/workflow-webhook
+      - name: Workflow Webhook Action
+        uses: distributhor/workflow-webhook@v1.0.5
         with:
           url: https://webhooks.gitter.im/e/f0c538cdfc9883f81e34

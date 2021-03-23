@@ -37,8 +37,6 @@ jobs:
       matrix:
         python-version: [2.7]
         node-version: [12]
-    env:
-      working-directory: ./webpack
 
     # Installations and Deployment
     steps:
@@ -49,11 +47,9 @@ jobs:
       - name: Build
         run: 
           lektor build -f webpack  # Build
-        working-directory: ${{ env.working-directory }}
       - name: Deploy
         run: 
           lektor deploy production   # Deploy
-        working-directory: ${{ env.working-directory }}
 
       # Webhook
 

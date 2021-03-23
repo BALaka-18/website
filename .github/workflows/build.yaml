@@ -47,12 +47,10 @@ jobs:
           npm install
       - name: Build
         run: 
-          lektor build  # Build
-        working-directory: webpack
+          lektor build -f webpack # Build
       - name: Deploy
         run: 
           lektor deploy production   # Deploy
-        working-directory: webpack
 
       # Webhook
 

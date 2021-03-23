@@ -5,10 +5,6 @@ on:
   pull_request:
     branches: [ master ]
 
-defaults:
-  run:
-    working-directory: webpack
-
 jobs: 
   setup-python:
     runs-on: ubuntu-latest
@@ -52,9 +48,11 @@ jobs:
       - name: Build
         run: 
           lektor build  # Build
+        working-directory: webpack
       - name: Deploy
         run: 
           lektor deploy production   # Deploy
+        working-directory: webpack
 
       # Webhook
 

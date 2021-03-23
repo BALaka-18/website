@@ -46,7 +46,7 @@ jobs:
           npm install
       - name: Build
         run: 
-          lektor build -f webpack  # Build
+          lektor build  # Build
       - name: Deploy
         run: 
           lektor deploy production   # Deploy

@@ -43,7 +43,7 @@ jobs:
       - name: Install Lektor and Node dependensies
         run: 
           pip install lektor
-          npm install --global npm@latest
+          sudo npm install --global npm@latest
       - name: Build
         run: 
           lektor build -f webpack   # Build

@@ -4,6 +4,11 @@ on:
     branches: [ github-actions ]
   pull_request:
     branches: [ master ]
+
+defaults:
+  run:
+    working-directory: webpack
+
 jobs: 
   setup-python:
     runs-on: ubuntu-latest

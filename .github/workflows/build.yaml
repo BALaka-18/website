@@ -10,6 +10,7 @@ jobs:
     strategy:
       matrix:
         python-version: [2.7]
+        node-version: [12]
 
     steps:
       - uses: actions/checkout@v2
@@ -17,6 +18,12 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
+
+      - uses: actions/checkout@v2
+      - name: Setup Node ${{ matrix.node-version }}
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
 
       # Installations and Deployment
 

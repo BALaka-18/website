@@ -38,7 +38,7 @@ jobs:
         python-version: [2.7]
         node-version: [12]
     env:
-      working-directory: ./
+      working-directory: ./webpack
 
     # Installations and Deployment
     steps:
@@ -48,7 +48,7 @@ jobs:
           npm install
       - name: Build
         run: 
-          lektor build   # Build
+          lektor build -f webpack  # Build
         working-directory: ${{ env.working-directory }}
       - name: Deploy
         run: 

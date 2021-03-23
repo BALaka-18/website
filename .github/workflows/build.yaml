@@ -39,7 +39,7 @@ jobs:
         node-version: [12]
 
     # Installations and Deployment
-
+    steps:
       - name: Install Lektor and Node dependensies
         run: 
           pip install lektor

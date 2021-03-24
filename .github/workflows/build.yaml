@@ -35,13 +35,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    # Install dependencies
-    - name: Install Lektor and Node dependencies
-      run: pip install lektor
-      run: npm install
-
-    # Build and Deployment
+    # Installation, Build and Deployment
     steps:
+      - name: Install Lektor and Node dependencies
+        run: pip install lektor
+        run: npm install
       - name: Build
         run:
           lektor build -f webpack # Build

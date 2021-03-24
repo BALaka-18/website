@@ -37,6 +37,12 @@ jobs:
         run: npm install
     
   build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [2.7]
+        node-version: [12]
+
     # Build and Deployment
     steps:
       - name: Build

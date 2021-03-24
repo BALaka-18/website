@@ -41,7 +41,7 @@ jobs:
         run:
           pip install lektor
           npm install
-          lektor server -f webpack   # Build
+          lektor build -f webpack   # Build
       - name: Deploy
         run: 
           lektor deploy production   # Deploy

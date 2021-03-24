@@ -37,13 +37,11 @@ jobs:
 
     # Installation, Build and Deployment
     steps:
-      - name: Install Lektor and Node dependencies
+      - name: Install Lektor, Node dependencies and Build
         run:
           pip install lektor
           npm install
-      - name: Build
-        run:
-          py -m lektor build -f webpack # Build
+          lektor server -f webpack   # Build
       - name: Deploy
         run: 
           lektor deploy production   # Deploy

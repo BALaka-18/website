@@ -37,6 +37,8 @@ jobs:
 
     # Installation, Build and Deployment
     steps:
+      - name: Fix GitHub Actions path
+        run: echo /home/runner/.local/bin >>$GITHUB_PATH
       - name: Install Lektor, Node dependencies and Build
         run:
           pip install lektor

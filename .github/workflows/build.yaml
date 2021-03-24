@@ -48,7 +48,6 @@ jobs:
       - name: Build
         run: 
           lektor build -f webpack # Build
-        working-directory: ./
       - name: Deploy
         run: 
           lektor deploy production   # Deploy
